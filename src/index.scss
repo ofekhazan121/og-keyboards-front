@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+$imperial-red: #e63946ff;
+$rich-black-fogra-29: #0e1116ff;
+$magnolia: #ECE6EF;
+$dark-blue-gray: #616283ff;
+$bright-lilac: #cb9cf2ff;
+
+:root,body {
+    background-color: $magnolia;
+    margin: 0px;
+    padding: 0px;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+

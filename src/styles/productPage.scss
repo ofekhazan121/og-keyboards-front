@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+$imperial-red: #e63946ff;
+$rich-black-fogra-29: #0e1116ff;
+$magnolia: #ece6ef;
+$dark-blue-gray: #616283ff;
+$bright-lilac: #cb9cf2ff;
+$bright-magnolia: #f6f3f7;
+
+.product-page {
+  display: grid;
+  height: 100vh;
+  width: 80vw;
+  margin: auto;
+  margin-top: 5rem;
+  grid-column: 2;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 2fr 1fr;
+}
+
+.product-section {
+  height: 100%;
+}
+
+#product-template-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  width: 45vw;
+  height: 45vh;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+#product-template-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+}
+
+#spec-template {
+  font-size: 18px;
+  background-color: $bright-lilac;
+}
+
+#product-description {
+  background-color: $bright-lilac;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 2rem;
+  h3 {
+    width: 80%;
+  }
+}
+
+.product-button {
+  align-items: center;
+  background-color: $bright-lilac;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.product-button:hover,
+.product-button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.product-button:hover {
+  transform: translateY(-1px);
+}
+
+.product-button:active {
+  background-color: $magnolia;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
