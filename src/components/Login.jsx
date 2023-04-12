@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../styles/login.scss';
 import { useCookies } from "react-cookie"
-import { Link, useHref } from "react-router-dom";
+import {Link, useHref, useNavigate} from "react-router-dom";
 import axios from "axios";
 
 
@@ -9,6 +9,7 @@ import axios from "axios";
 const Login = () => {
 
   const [cookie, setCookie, removeCookie] = useCookies(['user'])
+  const navigate = useNavigate()
 
   const [authUser, setAuthUser] = useState({
     userName: "",
@@ -20,6 +21,7 @@ const Login = () => {
     axios.post("http://localhost:8080/users/login", authUser)
     .then((response) => {
       saveCookie(response)
+      navigate("/userProfile")
       console.log(response)
     })
     .catch(error => {
@@ -36,16 +38,10 @@ const Login = () => {
     setCookie('userName', response.data.userName)
   }
 
-  const deleteCookie = () => {
-    removeCookie('jwt')
-    removeCookie('firstName')
-    removeCookie('userName')
-  }
 
   const handleInput = (e) => {
     const { name, value } = e.target;
     setAuthUser({ ...authUser, [name]: value });
-    console.log(authUser);
   };
 
   return (
@@ -58,7 +54,7 @@ const Login = () => {
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" name="password" onChange={handleInput}/>
         <br />
-        <button type="submit"  onClick={signIn}>Submit</button>
+        <button type="submit"  onClick={signIn}>Login</button>
         <Link to={"/signup"}>Create Account</Link>
       </form>
     </div>

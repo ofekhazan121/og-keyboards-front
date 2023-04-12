@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+$imperial-red: #e63946ff;
+$rich-black-fogra-29: #0e1116ff;
+$magnolia: #ece6ef;
+$dark-blue-gray: #616283ff;
+$bright-lilac: #cb9cf2ff;
+$bright-magnolia: #f6f3f7;
+
+.container {
+  margin: auto;
+  display: grid;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  align-content: center;
+}
+
+.logout-button {
+  margin: auto;
+  width: 10%;
+  padding: 10px;
+  background-color: $bright-lilac;
+  color: $rich-black-fogra-29;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-links {
+  padding: 2rem;
+
+}

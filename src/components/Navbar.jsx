@@ -96,7 +96,7 @@ function Navbar() {
           <Link to={"/cart"}><AiOutlineShoppingCart size={25} color={"#616283ff"} /></Link>
         </div>
         <div id="navbar-login" className="navbar-section">
-          <Link to={"/login"}><AiOutlineUser size={25} color={"#616283ff"}/></Link>
+          <Link to={"/userProfile"}><AiOutlineUser size={25} color={"#616283ff"}/></Link>
         </div>
       </nav>
       <div className={nav ? "burger-open" : "burger-close"}>
@@ -105,7 +105,7 @@ function Navbar() {
           <Link to={"/keycaps"}>Keycaps</Link>
           <Link to={"/switches"}>Switches</Link>
           <Link to={"/accessories"}>Accessories & Tools</Link>
-          <Link to={"/login"}>Sign In</Link>
+          <Link to={"/userProfile"}>Sign In</Link>
         </div>
       </div>
     </div>
