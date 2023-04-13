@@ -85,7 +85,7 @@ export function CartProvider({children}) {
     function removeOneFromCart(productId) {
         const quantity = getProductQuantity(productId);
 
-        if (quantity == 1) {
+        if (quantity === 1) {
             deleteFromCart(productId);
         } else {
             setCartProducts(
@@ -115,7 +115,7 @@ export function CartProvider({children}) {
     }
 
     const contextValue = {
-        items: [],
+        items: cartProducts,
         getProductQuantity,
         addOneToCart,
         removeOneFromCart,
