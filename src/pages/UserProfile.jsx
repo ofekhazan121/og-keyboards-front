@@ -10,7 +10,6 @@ const UserProfile = () => {
     const navigate = useNavigate();
 
     const checkJWT = async () => {
-        const jwt = cookies.jwt
         try {
             const {res} = await axios.post("http://localhost:8080/users/checkJWT",
                 {}, {headers: {'Authorization': `Bearer ${cookies.jwt}`}});
@@ -24,6 +23,7 @@ const UserProfile = () => {
         removeCookies("jwt")
         removeCookies("firstName")
         removeCookies("userName")
+        removeCookies("role")
         navigate("/")
     }
 
@@ -33,14 +33,36 @@ const UserProfile = () => {
 
     return (
         <div className="container">
-            <div className="username">
-                <h2>Hello, {cookies.firstName}</h2>
-            </div>
-            <div className="user-links">
-                <Link to={"/viewOrders"}>View Orders</Link>
-                <Link to={"/contactSupport"}>Contact Support</Link>
-            </div>
-            <button onClick={logout} className="logout-button">Logout</button>
+            {cookies.role === "ADMIN" || cookies.role === "WORKER" ? (
+                <div>
+                    <div className="username">
+                        <h2>Hello, {cookies.firstName}</h2>
+                    </div>
+                    {
+                        cookies.role === "ADMIN" ?
+                                <div className="admin-links">
+                                    <Link to={"/viewAllOrders"}>View Orders</Link>
+                                    <Link to={"/manageProducts"}>Manage Products</Link>
+                                </div> :
+                                <div className="worker-links">
+                                    <Link to={"/viewAllOrders"}>View Orders</Link>
+                                </div>
+                    }
+                    <button onClick={logout} className="logout-button">Logout</button>
+                </div>
+                ) : (
+                <div>
+                    <div className="username">
+                        <h2>Hello, {cookies.firstName}</h2>
+                    </div>
+                    <div className="user-links">
+                        <Link to={"/viewOrders"}>View Orders</Link>
+                        <Link to={"/contactSupport"}>Contact Support</Link>
+                    </div>
+                    <button onClick={logout} className="logout-button">Logout</button>
+                </div>
+                )
+            }
         </div>
     )
 }

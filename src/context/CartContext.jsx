@@ -3,6 +3,8 @@ import axios from "axios";
 import {useCookies} from "react-cookie";
 import {json} from "react-router-dom";
 import cart from "../pages/Cart.jsx";
+import cartProduct from "../components/CartProduct.jsx";
+import {toast, ToastContainer} from "react-toastify";
 
 export const CartContext = createContext({
     items: [],
@@ -21,8 +23,8 @@ export const CartContext = createContext({
 export function CartProvider({children}) {
     const [cartProducts, setCartProducts] = useState([]);
     const [productData, setProductData] = useState([])
-    const [cookies, setCookie] = useCookies(["cart"]);
-    // [ { id: 2 ,quantity: 2 }, { id: 4, quantity: 1} ]
+    const [cookies, setCookie, removeCookie] = useCookies(["cart"]);
+
 
     useEffect(() => {
         if (cartProducts.length === 0 && cookies.cart) {
@@ -32,20 +34,35 @@ export function CartProvider({children}) {
 
     useEffect(() => {
         console.log(cartProducts)
-    },[cartProducts])
+        setCookie('cart', JSON.stringify(cartProducts))
+    }, [cartProducts])
 
-    const getProductData = async (productId) => {
-        axios.post("http://localhost:8080/product/getProduct", {productId})
-            .then((response) => {
-                setProductData(response.data)
-                console.log(response.data)
-                return response.data
-            })
-            .catch(error => {
-                console.log("There Was an error!", error);
-            })
 
-    };
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem('OG_KEYS_PRODUCTS'));
+        if (data.length === 0) {
+            getAllProductsData()
+            localStorage.setItem('OG_KEYS_PRODUCTS', JSON.stringify(productData))
+        } else {
+            setProductData(data)
+        }
+
+    }, [])
+
+    const clearCart = () => {
+        setCartProducts([])
+        removeCookie("cart")
+    }
+
+    const getAllProductsData = async () => {
+        const res = await axios.get("http://localhost:8080/product/getAll")
+        setProductData(res.data)
+    }
+
+    const productMap = (productId) => {
+        const results = productData.find(({id}) => id === productId)
+        return results
+    }
 
     function getProductQuantity(productId) {
         const quantity = cartProducts.find(product => product.productId === productId)?.quantity
@@ -108,25 +125,69 @@ export function CartProvider({children}) {
         let totalCost = 0;
 
         cartProducts.map((cartItem) => {
-            const productData = getProductData(cartItem.productId);
+            const productData = productMap(cartItem.productId);
             totalCost += (productData.price * cartItem.quantity)
         });
         return totalCost;
     }
 
-    const contextValue = {
-        items: cartProducts,
-        getProductQuantity,
-        addOneToCart,
-        removeOneFromCart,
-        deleteFromCart,
-        getTotalCost,
+    const notifySuccess = (string) => {
+        toast.success(string, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     }
-    return (
-        <CartContext.Provider value={contextValue}>
-            {children}
-        </CartContext.Provider>
-    )
+
+    const notifyError = (string) => {
+        toast.error(string, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+
+}
+
+const contextValue = {
+    items: cartProducts,
+    getProductQuantity,
+    addOneToCart,
+    removeOneFromCart,
+    deleteFromCart,
+    getTotalCost,
+    productData,
+    productMap,
+    notifySuccess,
+    notifyError,
+    clearCart
+}
+return (
+    <CartContext.Provider value={contextValue}>
+        {children}
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+        />
+    </CartContext.Provider>
+)
 }
 
 export default CartProvider

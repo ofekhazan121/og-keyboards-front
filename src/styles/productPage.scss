@@ -63,6 +63,8 @@ $bright-magnolia: #f6f3f7;
 }
 
 .product-button {
+  height: 48px;
+  width: 160px;
   align-items: center;
   background-color: $bright-lilac;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -72,7 +74,7 @@ $bright-magnolia: #f6f3f7;
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: inline-flex;
-  font-family: "Poppins";
+  font-family: "Poppins", serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -87,7 +89,6 @@ $bright-magnolia: #f6f3f7;
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: auto;
 }
 
 .product-button:hover,
