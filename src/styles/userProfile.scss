@@ -25,9 +25,15 @@ $bright-magnolia: #f6f3f7;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  min-width: 150px;
 }
 
 .user-links {
+  display: grid;
   padding: 2rem;
+}
 
+.admin-links {
+  display: grid;
+  padding: 2rem;
 }

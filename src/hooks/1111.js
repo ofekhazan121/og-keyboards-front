@@ -1,5 +1,4 @@
 
-
     //   res.items.forEach((item) => {
     //     console.log(item);
     //     let image = {

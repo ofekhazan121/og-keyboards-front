@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import '../styles/login.scss';
 import { useCookies } from "react-cookie"
 import {Link, useHref, useNavigate} from "react-router-dom";
 import axios from "axios";
+import {CartContext} from "../context/CartContext.jsx";
 
 
 
@@ -10,6 +11,7 @@ const Login = () => {
 
   const [cookie, setCookie, removeCookie] = useCookies(['user'])
   const navigate = useNavigate()
+  const cart = useContext(CartContext)
 
   const [authUser, setAuthUser] = useState({
     userName: "",
@@ -22,6 +24,7 @@ const Login = () => {
     .then((response) => {
       saveCookie(response)
       navigate("/userProfile")
+      cart.notifySuccess(`Welcome back ${response.data.firstName}`)
       console.log(response)
     })
     .catch(error => {
@@ -36,6 +39,7 @@ const Login = () => {
     setCookie('jwt', response.data.jwt)
     setCookie('firstName', response.data.firstName)
     setCookie('userName', response.data.userName)
+    setCookie('role', response.data.role)
   }
 
 
