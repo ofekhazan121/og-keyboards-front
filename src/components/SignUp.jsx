@@ -18,7 +18,7 @@ function SignUp() {
 
     const signUpUser = async () => {
         try {
-            await axios.post("http://localhost:8080/users/signup", authUser)
+            await axios.post("http://192.168.1.119:8080/users/signup", authUser)
                 .then(
                     navigate("/login")
                 )
@@ -30,7 +30,6 @@ function SignUp() {
     const handleInput = (e) => {
         const {name, value} = e.target;
         setAuthUser({...authUser, [name]: value});
-        console.log(authUser);
     };
 
 

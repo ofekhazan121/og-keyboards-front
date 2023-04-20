@@ -20,7 +20,7 @@ const SearchResults = (props) => {
 
   const getProducts = async () => {
     axios
-      .post("http://localhost:8080/product/filter", { type: props.val })
+      .post("http://192.168.1.119:8080/product/filter", { type: props.val })
       .then((response) => {
         setProducts(response.data);
       })

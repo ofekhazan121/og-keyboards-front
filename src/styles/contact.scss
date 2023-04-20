@@ -1,0 +1,25 @@
+
+
+
+iframe {
+  border:none;
+}
+
+.contact {
+  font-size: large;
+  display: grid;
+  justify-items: center;
+  padding: 2rem;
+
+  .contact-instagram {
+    display: flex;
+    margin-top: 1rem;
+
+    :nth-child(1) {
+      margin-left: 0.5rem
+    }
+    :nth-child(2) {
+      margin-top: 0.25rem;
+    }
+  }
+}

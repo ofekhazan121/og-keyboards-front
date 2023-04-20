@@ -1,5 +1,5 @@
 import "./index.scss";
-import Management from "./pages/Management";
+import ProductManagement from "./pages/ProductManagement.jsx";
 import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/Navbar";
 import SearchResults from "./components/SearchResults";
@@ -16,6 +16,10 @@ import ProductPage from "./pages/ProductPage";
 import Cart from "./pages/Cart";
 import UserProfile from "./pages/UserProfile.jsx";
 import CartProvider from "./context/CartContext.jsx";
+import Contact from "./pages/Contact.jsx";
+import Orders from "./pages/Orders.jsx";
+import ViewAllOrders from "./components/ViewAllOrders.jsx";
+import OrderUpdate from "./components/OrderUpdate.jsx";
 
 function App() {
     const [cookies] = useCookies(['user'])
@@ -33,15 +37,20 @@ function App() {
                         <Route path={"/"} element={<HomePage/>}/>
                         <Route path={"/login"} element={<LoginPage/>}/>
                         <Route path={"/searchResults"} element={<SearchResults/>}/>
-                        <Route path={"/management"} element={<Management/>}/>
+                        <Route path={"/productManagement"} element={<ProductManagement/>}/>
                         <Route path={"/signup"} element={<SignUp/>}/>
-                        <Route path="/keyboards" element={<Keyboards/>}/>
-                        <Route path="/accessories" element={<Accessories/>}/>
-                        <Route path="/switches" element={<Switches/>}/>
-                        <Route path="/keycaps" element={<Keycaps/>}/>
-                        <Route path="/product/*" element={<ProductPage/>}/>
-                        <Route path="/cart" element={<Cart/>}/>
-                        <Route path="/userProfile" element={<UserProfile/>}/>
+                        <Route path={"/keyboards"} element={<Keyboards/>}/>
+                        <Route path={"/accessories"} element={<Accessories/>}/>
+                        <Route path={"/switches"} element={<Switches/>}/>
+                        <Route path={"/keycaps"} element={<Keycaps/>}/>
+                        <Route path={"/product/*"} element={<ProductPage/>}/>
+                        <Route path={"/orderUpdate/*"} element={<OrderUpdate/>} />
+                        <Route path={"/cart"} element={<Cart/>}/>
+                        <Route path={"/userProfile"} element={<UserProfile/>}/>
+                        <Route path={"/contactSupport"} element={<Contact/>}/>
+                        <Route path={"/viewOrders"} element={<Orders />}/>
+                        <Route path={"/viewAllOrders"} element={<ViewAllOrders/>}/>
+                        <Route path={"*"} element={<Redirect />}/>
                     </Routes>
                 </UserContext.Provider>
             </CartProvider>
