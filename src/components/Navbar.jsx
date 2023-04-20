@@ -27,7 +27,7 @@ function Navbar() {
   useEffect(() => {
     const getProducts = async () => {
       await axios
-      .post("http://localhost:8080/product/getByName", { name: search })
+      .post("http://192.168.1.119:8080/product/getByName", { name: search })
       .then((response) => {
         setProducts(response.data);
       })
@@ -53,7 +53,8 @@ function Navbar() {
 
   const handleChange = (selectedOption) => {
     const getSpecs = async() => {
-      const response = await axios.post("http://localhost:8080/product/getProduct",  { id :selectedOption.id })
+      const response = await axios.post("http://192.168.1.119:8080/product/getProduct",
+          { id :selectedOption.id })
     }
     
     getSpecs();

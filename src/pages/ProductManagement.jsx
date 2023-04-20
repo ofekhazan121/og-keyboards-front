@@ -2,7 +2,7 @@ import React from 'react'
 import AddProduct from '../components/AddProduct'
 
 
-function Management() {
+function ProductManagement() {
   return (
     <div>
         <AddProduct/>
@@ -10,4 +10,4 @@ function Management() {
   )
 }
 
-export default Management
+export default ProductManagement

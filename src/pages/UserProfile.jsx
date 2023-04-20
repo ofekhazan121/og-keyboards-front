@@ -11,7 +11,7 @@ const UserProfile = () => {
 
     const checkJWT = async () => {
         try {
-            const {res} = await axios.post("http://localhost:8080/users/checkJWT",
+            const {res} = await axios.post("http://192.168.1.119:8080/users/checkJWT",
                 {}, {headers: {'Authorization': `Bearer ${cookies.jwt}`}});
         } catch (e) {
             logout()
@@ -34,7 +34,7 @@ const UserProfile = () => {
     return (
         <div className="container">
             {cookies.role === "ADMIN" || cookies.role === "WORKER" ? (
-                <div>
+                <div className="admin-worker-page">
                     <div className="username">
                         <h2>Hello, {cookies.firstName}</h2>
                     </div>
@@ -42,7 +42,7 @@ const UserProfile = () => {
                         cookies.role === "ADMIN" ?
                                 <div className="admin-links">
                                     <Link to={"/viewAllOrders"}>View Orders</Link>
-                                    <Link to={"/manageProducts"}>Manage Products</Link>
+                                    <Link to={"/productManagement"}>Manage Products</Link>
                                 </div> :
                                 <div className="worker-links">
                                     <Link to={"/viewAllOrders"}>View Orders</Link>
@@ -51,7 +51,7 @@ const UserProfile = () => {
                     <button onClick={logout} className="logout-button">Logout</button>
                 </div>
                 ) : (
-                <div>
+                <div className="user-page">
                     <div className="username">
                         <h2>Hello, {cookies.firstName}</h2>
                     </div>

@@ -1,9 +1,6 @@
-import React, {createContext, useState, useEffect} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {useCookies} from "react-cookie";
-import {json} from "react-router-dom";
-import cart from "../pages/Cart.jsx";
-import cartProduct from "../components/CartProduct.jsx";
 import {toast, ToastContainer} from "react-toastify";
 
 export const CartContext = createContext({
@@ -40,7 +37,7 @@ export function CartProvider({children}) {
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('OG_KEYS_PRODUCTS'));
-        if (data.length === 0) {
+        if (data?.length === 0 || data === null) {
             getAllProductsData()
             localStorage.setItem('OG_KEYS_PRODUCTS', JSON.stringify(productData))
         } else {
@@ -55,13 +52,12 @@ export function CartProvider({children}) {
     }
 
     const getAllProductsData = async () => {
-        const res = await axios.get("http://localhost:8080/product/getAll")
+        const res = await axios.get("http://192.168.1.119:8080/product/getAll")
         setProductData(res.data)
     }
 
     const productMap = (productId) => {
-        const results = productData.find(({id}) => id === productId)
-        return results
+        return productData?.find(({id}) => id === productId)
     }
 
     function getProductQuantity(productId) {
@@ -126,7 +122,7 @@ export function CartProvider({children}) {
 
         cartProducts.map((cartItem) => {
             const productData = productMap(cartItem.productId);
-            totalCost += (productData.price * cartItem.quantity)
+            totalCost += (productData?.price * cartItem.quantity)
         });
         return totalCost;
     }

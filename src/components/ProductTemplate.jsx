@@ -45,7 +45,6 @@ function ProductTemplate({product, spec}) {
 
     return (
         <div className="product-page">
-            {/* image, name and price */}
             <div id="product-template-image" className="product-section">
                 <img
                     src={imageUrl !== null ? imageUrl : ''}
@@ -57,19 +56,21 @@ function ProductTemplate({product, spec}) {
                 <h2>${product.price}</h2>
                 {
                     productQuantity > 0 ?
-                        <div className="product-amount">
+                        <div>
                             <h2>In Cart: {productQuantity}</h2>
-                            <div>
-                                <FaPlusSquare size={"50"}
-                                              onClick={() => cart.addOneToCart(product.id)}>
-                                </FaPlusSquare>
-                                <FaMinusSquare size={"50"}
-                                               onClick={() => cart.removeOneFromCart(product.id)}>
-                                </FaMinusSquare>
-                            </div>
+                            <div className="product-amount">
+                                <div>
+                                    <FaPlusSquare size={"50"}
+                                                  onClick={() => cart.addOneToCart(product.id)}>
+                                    </FaPlusSquare>
+                                    <FaMinusSquare size={"50"}
+                                                   onClick={() => cart.removeOneFromCart(product.id)}>
+                                    </FaMinusSquare>
+                                </div>
                                 <AiFillDelete className="remove-button" size={"50"}
-                                          onClick={() => cart.deleteFromCart(product.id)}>
+                                              onClick={() => cart.deleteFromCart(product.id)}>
                                 </AiFillDelete>
+                            </div>
                         </div>
                         :
                         <button className="product-button" onClick={() => handleAddProduct(product.id)}>ADD TO

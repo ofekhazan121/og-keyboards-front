@@ -20,12 +20,11 @@ const Login = () => {
 
   const signIn = async (e) => {
     e.preventDefault()
-    axios.post("http://localhost:8080/users/login", authUser)
+    axios.post("http://192.168.1.119:8080/users/login", authUser)
     .then((response) => {
       saveCookie(response)
       navigate("/userProfile")
       cart.notifySuccess(`Welcome back ${response.data.firstName}`)
-      console.log(response)
     })
     .catch(error => {
       console.log("There Was an error!", error);

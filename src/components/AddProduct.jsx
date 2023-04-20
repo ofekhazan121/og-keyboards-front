@@ -83,7 +83,7 @@ function AddProduct() {
   const insertProduct = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/product/addproduct",
+        "http://192.168.1.119:8080/product/addproduct",
         productResponse
       );
       if (data) {
