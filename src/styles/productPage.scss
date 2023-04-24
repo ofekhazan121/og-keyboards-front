@@ -176,6 +176,7 @@ $bright-magnolia: #f6f3f7;
   #spec-template {
     font-size: 18px;
     background-color: $bright-lilac;
+    margin-top: 5rem;
   }
 
   #product-description {
@@ -183,6 +184,7 @@ $bright-magnolia: #f6f3f7;
     width: 100%;
     font-size: 18px;
     padding-left: 2rem;
+    margin-top: 5rem;
 
     h3 {
       width: 80%;
@@ -252,5 +254,13 @@ $bright-magnolia: #f6f3f7;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
+}
+
+.product-management-buttons {
+  display: flex;
+  justify-content: center;
+  button {
+    margin-left: 2rem;
+  }
 }
 

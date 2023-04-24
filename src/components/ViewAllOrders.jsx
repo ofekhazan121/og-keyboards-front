@@ -10,7 +10,6 @@ const ViewAllOrders = () => {
     const [cookies, setCookies, removeCookies] = useCookies();
     const navigate = useNavigate();
     const [orders, setOrders] = useState([])
-    const [orderNumber ,setOrderNumber] = useState()
 
 
     useEffect(() => {
@@ -19,8 +18,7 @@ const ViewAllOrders = () => {
 
     const getAll = async () => {
         try {
-            const res = await axios.get("http://192.168.1.119:8080/order/getAll",{headers: {'Authorization': `Bearer ${cookies.jwt}`}})
-            console.log(res.data)
+            const res = await axios.get("http://192.168.1.119:8080/order/getOrderNumbers",{headers: {'Authorization': `Bearer ${cookies.jwt}`}})
             setOrders(res.data)
         }catch (e) {
             console.log(e)
@@ -35,12 +33,10 @@ const ViewAllOrders = () => {
                 {orders.map((currentOrder,index) => (
                     <OrderCard
                         key={index}
-                        productName={currentOrder.productName}
-                        productId={currentOrder.productId}
-                        quantity={currentOrder.quantity}
-                        price={currentOrder.price}
-                        orderNumber={currentOrder.orderNumber}>
-                        props={currentOrder}
+                        status={currentOrder.status}
+                        orderNumber={currentOrder.orderNumber}
+                        workerName={currentOrder.workerName}
+                        props={currentOrder}>
                     </OrderCard>
                 ))}
             </div>

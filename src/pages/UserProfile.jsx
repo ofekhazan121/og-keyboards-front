@@ -24,6 +24,9 @@ const UserProfile = () => {
         removeCookies("firstName")
         removeCookies("userName")
         removeCookies("role")
+        if (cookies.workerId) {
+            removeCookies("workerId")
+        }
         navigate("/")
     }
 

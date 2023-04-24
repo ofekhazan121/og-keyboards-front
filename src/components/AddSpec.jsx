@@ -9,7 +9,7 @@ function AddSpec({product,spec,setSpec}) {
   switch (product.type) {
     case "Keyboard":
       return (
-        <div className="spec-form">
+        <div className="product-form">
           <input
             type="text"
             required
@@ -71,7 +71,7 @@ function AddSpec({product,spec,setSpec}) {
 
     case "Switch":
       return (
-        <div className="spec-form">
+        <div className="product-form">
           <input
             type="text"
             required
@@ -133,7 +133,7 @@ function AddSpec({product,spec,setSpec}) {
 
     case "Keycaps":
       return (
-        <div className="spec-form">
+        <div className="product-form">
           <input
             type="text"
             required
@@ -179,7 +179,7 @@ function AddSpec({product,spec,setSpec}) {
 
     case "Case":
       return (
-        <div className="spec-form">
+        <div className="product-form">
           <input
             type="text"
             required

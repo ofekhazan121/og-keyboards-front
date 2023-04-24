@@ -20,6 +20,8 @@ import Contact from "./pages/Contact.jsx";
 import Orders from "./pages/Orders.jsx";
 import ViewAllOrders from "./components/ViewAllOrders.jsx";
 import OrderUpdate from "./components/OrderUpdate.jsx";
+import AddProduct from "./components/AddProduct.jsx";
+import UpdateProducts from "./components/UpdateProducts.jsx";
 
 function App() {
     const [cookies] = useCookies(['user'])
@@ -50,6 +52,8 @@ function App() {
                         <Route path={"/contactSupport"} element={<Contact/>}/>
                         <Route path={"/viewOrders"} element={<Orders />}/>
                         <Route path={"/viewAllOrders"} element={<ViewAllOrders/>}/>
+                        <Route path={"/addProduct"} element={<AddProduct/>}/>
+                        <Route path={"/UpdateProducts"} element={<UpdateProducts/>}/>
                         <Route path={"*"} element={<Redirect />}/>
                     </Routes>
                 </UserContext.Provider>
