@@ -22,6 +22,8 @@ import ViewAllOrders from "./components/ViewAllOrders.jsx";
 import OrderUpdate from "./components/OrderUpdate.jsx";
 import AddProduct from "./components/AddProduct.jsx";
 import UpdateProducts from "./components/UpdateProducts.jsx";
+import Footer from "./components/Footer.jsx";
+import AboutUs from "./components/AboutUs.jsx";
 
 function App() {
     const [cookies] = useCookies(['user'])
@@ -54,8 +56,10 @@ function App() {
                         <Route path={"/viewAllOrders"} element={<ViewAllOrders/>}/>
                         <Route path={"/addProduct"} element={<AddProduct/>}/>
                         <Route path={"/UpdateProducts"} element={<UpdateProducts/>}/>
+                        <Route path={"/about"} element={<AboutUs/>}/>
                         <Route path={"*"} element={<Redirect />}/>
                     </Routes>
+                    <Footer />
                 </UserContext.Provider>
             </CartProvider>
         </main>

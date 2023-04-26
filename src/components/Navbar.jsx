@@ -55,7 +55,7 @@ function Navbar() {
 
   const handleChange = (selectedOption) => {
     const getSpecs = async() => {
-      const response = await axios.post("http://192.168.1.119:8080/product/getProduct",
+      const response = await axios.post("http://localhost:8080/product/getProduct",
           { id :selectedOption.id })
     }
     

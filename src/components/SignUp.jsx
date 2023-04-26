@@ -19,7 +19,7 @@ function SignUp() {
 
     const signUpUser = async () => {
         try {
-            await axios.post("http://192.168.1.119:8080/users/signup", authUser)
+            await axios.post("http://localhost:8080/users/signup", authUser)
                 .then((res) => {
                     cart.notifySuccess(res.data)
                     navigate("/login")

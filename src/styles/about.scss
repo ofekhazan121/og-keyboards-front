@@ -1,0 +1,18 @@
+
+.about-text {
+  width: 80vw;
+  justify-self: center;
+}
+
+.about-images {
+  display: flex;
+  height: 20vh;
+  width: 80vw;
+  justify-self: center;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

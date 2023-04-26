@@ -27,7 +27,7 @@ const OrderUpdate = () => {
     }, [status])
 
     const putOrderStatus = async () => {
-        await axios.put("http://192.168.1.119:8080/order/updateStatus", {
+        await axios.put("http://localhost:8080/order/updateStatus", {
             workerId: cookies.workerId,
             status: status,
             orderNumber: id
@@ -42,7 +42,7 @@ const OrderUpdate = () => {
 
     const getOrderDetails = () => {
         try {
-            const test = axios.post("http://192.168.1.119:8080/order/get",
+            const test = axios.post("http://localhost:8080/order/get",
                 id,
                 {headers: {'Content-Type': 'application/json',}})
                 .then((res) => {

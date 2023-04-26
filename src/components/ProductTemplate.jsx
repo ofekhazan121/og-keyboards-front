@@ -54,7 +54,7 @@ function ProductTemplate({product, spec ,fromPreview}) {
     const handleDelete = () => {
         const imageRef = ref(storage, `product-images/${product.id}`);
 
-        axios.post("http://192.168.1.119:8080/product/deleteProduct", product.id, {headers: {'Content-Type': 'application/json',}}).then((res) => {
+        axios.post("http://localhost:8080/product/deleteProduct", product.id, {headers: {'Content-Type': 'application/json',}}).then((res) => {
             navigate("/")
         }).catch((e) => {
             console.log(e)

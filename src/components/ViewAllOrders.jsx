@@ -18,7 +18,8 @@ const ViewAllOrders = () => {
 
     const getAll = async () => {
         try {
-            const res = await axios.get("http://192.168.1.119:8080/order/getOrderNumbers",{headers: {'Authorization': `Bearer ${cookies.jwt}`}})
+            const res = await axios.get("http://localhost:8080/order/getOrderNumbers",
+                {headers: {'Authorization': `Bearer ${cookies.jwt}`}})
             setOrders(res.data)
         }catch (e) {
             console.log(e)

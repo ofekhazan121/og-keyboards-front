@@ -57,7 +57,7 @@ function AddProduct() {
         if (!isOpen) return null;
         console.log(isOpen);
         return ReactDOM.createPortal(
-            <div className="modal-container">
+            <div className="container">
                 <div className="modal-div">
                     {children}
                     {
@@ -83,7 +83,7 @@ function AddProduct() {
     const updateProducts = async () => {
         try {
             const data = await axios.post(
-                "http://192.168.1.119:8080/product/updateProduct",
+                "http://localhost:8080/product/updateProduct",
                 productResponse
             )
             console.log(data)
@@ -117,7 +117,7 @@ function AddProduct() {
     const insertProduct = async () => {
         try {
             const {data} = await axios.post(
-                "http://192.168.1.119:8080/product/addproduct",
+                "http://localhost:8080/product/addproduct",
                 productResponse
                 , {headers: {"Authorization": `Bearer ${cookies.jwt}`}}
             );

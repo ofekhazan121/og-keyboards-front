@@ -13,7 +13,7 @@ const UserOrders = () => {
     },[])
 
     const getUserOrders = async () => {
-        const res = await axios.post("http://192.168.1.119:8080/order/getByUserName",
+        const res = await axios.post("http://localhost:8080/order/getByUserName",
             { userName: cookies.userName}, {headers: {'Authorization': `Bearer ${cookies.jwt}`}})
         setOrders(res.data)
         console.log(res.data)
