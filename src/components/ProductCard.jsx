@@ -26,7 +26,7 @@ function ProductCard(props) {
     listAll(imageListRef).then((res) => {
       res.items.forEach((item) => {
         let imageName = item.name.split(".")
-        if (imageName[0] == props.product.id) {
+        if (imageName[0] == `${props.product.brand}${props.product.model}`) {
           getDownloadURL(item).then((res) => {
             setImageUrl(res)
           })

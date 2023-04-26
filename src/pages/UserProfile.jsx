@@ -11,7 +11,7 @@ const UserProfile = () => {
 
     const checkJWT = async () => {
         try {
-            const {res} = await axios.post("http://192.168.1.119:8080/users/checkJWT",
+            const {res} = await axios.post("http://localhost:8080/users/checkJWT",
                 {}, {headers: {'Authorization': `Bearer ${cookies.jwt}`}});
         } catch (e) {
             logout()

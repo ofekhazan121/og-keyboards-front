@@ -107,7 +107,7 @@ function AddProduct() {
 
     const uploadImage = (data) => {
         if (imageUpload == null) return;
-        const imageRef = ref(storage, `product-images/${data.product.id}`);
+        const imageRef = ref(storage, `product-images/${data.product.brand}${data.product.model}`);
         uploadBytes(imageRef, imageUpload).then(() => {
             alert("imageUploaded");
         });

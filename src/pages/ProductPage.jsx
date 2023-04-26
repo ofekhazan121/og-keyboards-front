@@ -10,7 +10,7 @@ const ProductPage = () => {
     const getProduct = async() => {
         let url = window.location.href
         let urlArr = url.split("/")
-        const response = await axios.post("http://192.168.1.119:8080/product/getProduct",  { id : Number(urlArr[urlArr.length-1]) })
+        const response = await axios.post("http://localhost:8080/product/getProduct",  { id : Number(urlArr[urlArr.length-1]) })
         setProduct(response.data)
     }
 

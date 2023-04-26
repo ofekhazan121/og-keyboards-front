@@ -35,7 +35,7 @@ function ProductTemplate({product, spec ,fromPreview}) {
         listAll(imageListRef).then((res) => {
             res.items.forEach((item) => {
                 let imageName = item.name.split(".")
-                if (imageName[0] == product.id) {
+                if (imageName[0] == `${product.brand}${product.model}`) {
                     getDownloadURL(item).then((res) => {
                         setImageUrl(res)
                     })

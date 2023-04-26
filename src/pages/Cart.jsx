@@ -17,7 +17,7 @@ const Cart = () => {
 
 
     const handleOrder = async () => {
-        await axios.post("http://192.168.1.119:8080/order", {
+        await axios.post("http://localhost:8080/order", {
             userName: cookies.userName,
             productList: cartProducts
         })

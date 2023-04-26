@@ -41,7 +41,6 @@ const ViewAllOrders = () => {
                     </OrderCard>
                 ))}
             </div>
-            <button className="product-button">Click</button>
         </div>
     );
 };
