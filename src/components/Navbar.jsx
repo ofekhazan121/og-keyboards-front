@@ -11,6 +11,7 @@ import SearchResults from "./SearchResults";
 import AsyncSelect from "react-select/async";
 import axios from "axios";
 import logo from '../assets/logo_short.png';
+import {useCookies} from "react-cookie";
 
 
 
@@ -22,6 +23,7 @@ function Navbar() {
   });
   const [search,setSearch] = useState()
   const navigate = useNavigate();
+  const [cookies] = useCookies();
 
 
   useEffect(() => {
@@ -53,7 +55,7 @@ function Navbar() {
 
   const handleChange = (selectedOption) => {
     const getSpecs = async() => {
-      const response = await axios.post("http://192.168.1.119:8080/product/getProduct",
+      const response = await axios.post("http://localhost:8080/product/getProduct",
           { id :selectedOption.id })
     }
     
@@ -74,7 +76,7 @@ function Navbar() {
       <nav>
         <div id="navbar-links" className="navbar-section" onClick={handleNav}>
           {nav ? (
-            <AiOutlineClose size={25} color={"#0e1116ff"} />
+            <AiOutlineClose size={25} color={"#0e1116ff"} className="outline-close"/>
           ) : (
             <AiOutlineMenu size={25} color={"#616283ff"} />
           )}
@@ -106,7 +108,7 @@ function Navbar() {
           <Link to={"/keycaps"}>Keycaps</Link>
           <Link to={"/switches"}>Switches</Link>
           <Link to={"/accessories"}>Accessories & Tools</Link>
-          <Link to={"/userProfile"}>Sign In</Link>
+          { cookies.jwt ? <Link to={"/userProfile"}>Profile</Link> : <Link to={"/userProfile"}>Sign In</Link>}
         </div>
       </div>
     </div>

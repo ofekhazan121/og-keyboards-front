@@ -52,7 +52,7 @@ export function CartProvider({children}) {
     }
 
     const getAllProductsData = async () => {
-        const res = await axios.get("http://192.168.1.119:8080/product/getAll")
+        const res = await axios.get("http://localhost:8080/product/getAll")
         setProductData(res.data)
     }
 

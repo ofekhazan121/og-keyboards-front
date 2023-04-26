@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
 $imperial-red: #e63946ff;
@@ -7,14 +6,26 @@ $magnolia: #ECE6EF;
 $dark-blue-gray: #616283ff;
 $bright-lilac: #cb9cf2ff;
 
-:root,body {
-    background-color: $magnolia;
-    margin: 0px;
-    padding: 0px;
+main{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+:root, body {
+  background-color: $magnolia;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  padding-top: 5rem;
+  margin-top: auto;
 }
 
 * {
   font-family: 'Poppins', sans-serif;
   text-decoration: none;
+
 }
 

@@ -241,6 +241,11 @@ nav {
     
 }
 
+.outline-close {
+    position: fixed;
+    top: 2rem;
+}
+
 .burger-links {
     display: flex;
     flex-direction: column;
@@ -249,5 +254,9 @@ nav {
     text-decoration: none;
     margin: 1rem;
     padding-top: 5rem;
-    
+    gap: 2rem;
+    a {
+        color: $magnolia;
+        text-decoration: none;
+    }
 }

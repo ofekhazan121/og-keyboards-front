@@ -20,13 +20,15 @@ const Login = () => {
 
   const signIn = async (e) => {
     e.preventDefault()
-    axios.post("http://192.168.1.119:8080/users/login", authUser)
+    axios.post("http://localhost:8080/users/login", authUser)
     .then((response) => {
       saveCookie(response)
       navigate("/userProfile")
       cart.notifySuccess(`Welcome back ${response.data.firstName}`)
+      console.log(response.data.workerId)
     })
     .catch(error => {
+      cart.notifyError("Incorrect username or password")
       console.log("There Was an error!", error);
     })
     
@@ -35,10 +37,20 @@ const Login = () => {
   
 
   const saveCookie = (response) => {
-    setCookie('jwt', response.data.jwt)
-    setCookie('firstName', response.data.firstName)
-    setCookie('userName', response.data.userName)
-    setCookie('role', response.data.role)
+
+    if (response.data.role !== "CLIENT") {
+      setCookie('jwt', response.data.jwt)
+      setCookie('firstName', response.data.firstName)
+      setCookie('userName', response.data.userName)
+      setCookie('role', response.data.role)
+      setCookie('workerId', response.data.id)
+    }else {
+      setCookie('jwt', response.data.jwt)
+      setCookie('firstName', response.data.firstName)
+      setCookie('userName', response.data.userName)
+      setCookie('role', response.data.role)
+    }
+
   }
 
 

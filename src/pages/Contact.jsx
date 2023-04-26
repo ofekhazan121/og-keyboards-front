@@ -9,6 +9,7 @@ const Contact = () => {
                 <div className="contact">
                     <h1>Contact Us!</h1>
                     <a href="tel:+972528248800">052-824-8800</a>
+                    <a href="mailto:ofekhazan121@gmail.com">ofekhazan121@gmail.com</a>
                     <div className="contact-instagram">
                         <IoLogoInstagram size={35} color="#cb9cf2ff" className="ml-2 "/>
                         <a href="https://www.instagram.com/ofekhazan121/" target="_blank">OG-keys</a>

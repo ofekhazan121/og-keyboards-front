@@ -15,6 +15,7 @@ $bright-magnolia: #f6f3f7;
   width: 100vw;
   align-content: center;
 
+
   a {
     color: $dark-blue-gray;
     text-decoration: none;
@@ -62,6 +63,20 @@ $bright-magnolia: #f6f3f7;
     display: grid;
     padding: 2rem;
     width: 10rem;
+  }
+}
+
+.management-container {
+  display: flex;
+  height: 80vh;
+  width: 100vw;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    margin: 1rem;
   }
 }
 

@@ -54,6 +54,7 @@ const Cart = () => {
                             </div>
                             <h1>Total: ${cart.getTotalCost().toFixed(2)}</h1>
                             <button className="product-button" onClick={() => handleOrder()}>Order Now</button>
+                            <p>Delivery is not Available,<br/> after ordering pick-up is Available from our Shop</p>
                         </div>
                 }
             </div> : (
