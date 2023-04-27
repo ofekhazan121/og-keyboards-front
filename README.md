@@ -8,7 +8,8 @@
 </h1>
 
 ## How To Use
-To use this projecct fully, you'll need to use my Backend project with it. You can find it [here](https://github.com/ofekhazan121/og-keyboards-back)
+To use this projecct fully, you'll need to use my Backend project with it. You can find it [here](https://github.com/ofekhazan121/og-keyboards-back).
+
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
